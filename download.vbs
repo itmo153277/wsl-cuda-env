@@ -20,7 +20,7 @@ stream.Write http.ResponseBody
 stream.Position = 0
 stream.SaveToFile target, 2
 If err.number <> 0 Then
-  WScript.Echo "Error dwonloading file"
+  WScript.Echo "Error downloading file: " & err.number
   WScript.Quit 1
 End If
 stream.Close

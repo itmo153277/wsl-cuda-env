@@ -80,9 +80,11 @@ Copy nul nul >nul
 If ErrorLevel 1 GoTo Execute_Error
 GoTo :EOF
 :Execute_Error
-Call :Echo Error %ErrorLevel%
-Pause >nul
-Exit
+(
+  Call :Echo Error %ErrorLevel%
+  Pause >nul
+  Exit /B %ErrorLevel%
+)
 
 :: Call :Tool tool_name
 ::
