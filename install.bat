@@ -83,7 +83,7 @@ GoTo :EOF
 (
   Call :Echo Error %ErrorLevel%
   Pause >nul
-  Exit /B %ErrorLevel%
+  Exit %ErrorLevel%
 )
 
 :: Call :Tool tool_name
