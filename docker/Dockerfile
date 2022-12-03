@@ -5,7 +5,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       curl \
-      ca-certificates \
+      ca-certificates && \
+    curl -sSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list && \
+    curl -sSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
+    curl -sSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+      sudo \
       build-essential \
       cmake \
       git \
@@ -23,7 +30,9 @@ RUN apt-get update && \
       clinfo \
       python3 \
       python3-venv \
-      python3-libnvinfer && \
+      python3-libnvinfer \
+      docker-ce \
+      nvidia-container-toolkit && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/OpenCL/vendors && \
