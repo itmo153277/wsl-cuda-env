@@ -36,5 +36,8 @@ RUN apt-get update && \
       nvidia-container-toolkit && \
     rm -rf /var/lib/apt/lists/*
 
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+
 RUN mkdir -p /etc/OpenCL/vendors && \
     echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd
