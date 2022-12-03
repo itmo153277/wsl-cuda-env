@@ -26,12 +26,12 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg |\
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu focal stable" \
 > /etc/apt/sources.list.d/docker.list
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
-  gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-curl -fsSL https://nvidia.github.io/libnvidia-container/ubuntu20.04/libnvidia-container.list | \
-  sed "s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g" \
-> /etc/apt/sources.list.d/nvidia-container-toolkit.list
+curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey| \
+  gpg --dearmor -o /etc/apt/keyrings/nvidia-docker.gpg
+curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list | \
+  sed "s#deb https://#deb [signed-by=/etc/apt/keyrings/nvidia-docker.gpg] https://#g" \
+> /etc/apt/sources.list.d/nvidia-docker.list
 
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin nvidia-docker2 git > /dev/null
+apt-get -qq -y install --no-install-recommends docker-ce nvidia-container-toolkit git > /dev/null
 usermod -aG docker ubuntu-cuda
