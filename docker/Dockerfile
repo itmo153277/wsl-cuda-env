@@ -31,6 +31,7 @@ RUN apt-get update && \
       clinfo \
       python3 \
       python3-venv \
+      python3-dev \
       python3-libnvinfer \
       docker-ce \
       nvidia-container-toolkit && \
