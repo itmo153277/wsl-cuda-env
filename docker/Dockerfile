@@ -14,6 +14,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       sudo \
       locales \
+      bash-completion \
       build-essential \
       cmake \
       git \
