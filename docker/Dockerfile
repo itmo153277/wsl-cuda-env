@@ -18,6 +18,8 @@ RUN apt-get update && \
       build-essential \
       cmake \
       git \
+      clang-tidy \
+      cppcheck \
       llvm-dev \
       zlib1g-dev \
       libtinfo-dev \
