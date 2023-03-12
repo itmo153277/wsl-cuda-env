@@ -33,5 +33,5 @@ curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list
 > /etc/apt/sources.list.d/nvidia-docker.list
 
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends docker-ce nvidia-container-toolkit git > /dev/null
+apt-get -qq -y install --no-install-recommends docker-ce docker-buildx-plugin nvidia-container-toolkit git > /dev/null
 usermod -aG docker ubuntu-cuda

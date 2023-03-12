@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       curl \
       ca-certificates && \
+    curl -sSL https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-x86_64.tar.gz | tar xzf - -C /usr/local --strip-components 1 --skip-old-files && \
     curl -sSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list && \
     curl -sSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
@@ -16,8 +17,8 @@ RUN apt-get update && \
       locales \
       bash-completion \
       build-essential \
-      cmake \
       git \
+      g++-10 \
       clang-tidy \
       cppcheck \
       llvm-dev \
@@ -37,6 +38,7 @@ RUN apt-get update && \
       python3-dev \
       python3-libnvinfer \
       docker-ce \
+      docker-buildx-plugin \
       nvidia-container-toolkit && \
     rm -rf /var/lib/apt/lists/*
 
