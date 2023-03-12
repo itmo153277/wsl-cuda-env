@@ -18,6 +18,7 @@ RUN apt-get update && \
       bash-completion \
       build-essential \
       git \
+      ninja-build \
       g++-10 \
       clang-tidy \
       cppcheck \
