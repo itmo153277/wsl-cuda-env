@@ -6,11 +6,13 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       curl \
       ca-certificates && \
-    curl -sSL https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-x86_64.tar.gz | tar xzf - -C /usr/local --strip-components 1 --skip-old-files && \
-    curl -sSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.24.4/cmake-3.24.4-linux-x86_64.tar.gz | tar xzf - -C /usr/local --strip-components 1 --skip-old-files && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list && \
-    curl -sSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
-    curl -sSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list && \
+    curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
+    curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list && \
+    curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
+    echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" > /etc/apt/sources.list.d/llvm.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       sudo \
@@ -20,9 +22,10 @@ RUN apt-get update && \
       git \
       ninja-build \
       g++-10 \
-      clang-tidy \
+      clang-15 \
+      clang-tidy-15 \
+      llvm-15-dev \
       cppcheck \
-      llvm-dev \
       zlib1g-dev \
       libtinfo-dev \
       libedit-dev \
