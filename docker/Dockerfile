@@ -20,6 +20,7 @@ RUN apt-get update && \
       bash-completion \
       build-essential \
       zip unzip \
+      pkg-config \
       git \
       ninja-build \
       g++-10 \
