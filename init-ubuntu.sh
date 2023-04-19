@@ -10,7 +10,7 @@ export LC_CTYPE=C.UTF-8
 export LC_ALL=C.UTF-8
 apt-get -qq update
 apt-get -qq -y full-upgrade > /dev/null
-apt-get -qq -y install --no-install-recommends sudo curl gnupg2 apt-utils ca-certificates locales > /dev/null
+apt-get -qq -y install --no-install-recommends sudo curl gnupg2 apt-utils ca-certificates locales tzdata > /dev/null
 useradd -m -d /home/ubuntu-cuda -s /bin/bash ubuntu-cuda
 echo "ubuntu-cuda:Passw0rd!" | chpasswd
 usermod -aG sudo ubuntu-cuda
