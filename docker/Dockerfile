@@ -19,6 +19,7 @@ RUN apt-get update && \
       locales \
       bash-completion \
       build-essential \
+      autoconf automake m4 bison gettext \
       zip unzip \
       pkg-config \
       git \
@@ -26,12 +27,10 @@ RUN apt-get update && \
       g++-10 \
       clang-15 \
       clang-tidy-15 \
-      llvm-15-dev \
+      clang-format-15 \
       cppcheck \
-      zlib1g-dev \
-      libtinfo-dev \
-      libedit-dev \
-      libxml2-dev \
+      libgtk-3-dev \
+      libc6-dev \
       libnvinfer-dev \
       libnvparsers-dev \
       libnvinfer-plugin-dev \
