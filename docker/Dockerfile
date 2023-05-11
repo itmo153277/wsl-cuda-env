@@ -30,7 +30,6 @@ RUN apt-get update && \
       clang-format-15 \
       cppcheck \
       libgtk-3-dev \
-      libc6-dev \
       libnvinfer-dev \
       libnvparsers-dev \
       libnvinfer-plugin-dev \
