@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.0.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -30,11 +30,7 @@ RUN apt-get update && \
       clang-format-15 \
       cppcheck \
       libgtk-3-dev \
-      libnvinfer-dev \
-      libnvparsers-dev \
-      libnvinfer-plugin-dev \
-      libnvonnxparsers-dev \
-      libnvinfer-bin \
+      tensorrt-dev \
       nvidia-opencl-dev \
       clinfo \
       python3 \
