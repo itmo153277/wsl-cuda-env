@@ -16,3 +16,4 @@ git clone https://github.com/microsoft/vcpkg --depth 1
 ./vcpkg/bootstrap-vcpkg.sh --disableMetrics
 echo "export VCPKG_FORCE_SYSTEM_BINARIES=1" >> .profile
 echo "export VCPKG_OVERLAY_PORTS=/workspace/wsl-cuda-env/vcpkg-overlay-ports" >> .profile
+echo "export VCPKG_ROOT=/workspace/vcpkg-overlay-ports" >> .profile
