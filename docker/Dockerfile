@@ -24,6 +24,7 @@ RUN apt-get update && \
       pkg-config \
       git \
       ninja-build \
+      gdb \
       g++-10 \
       clang-15 \
       clang-tidy-15 \
