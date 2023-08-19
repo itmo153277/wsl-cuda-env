@@ -6,6 +6,7 @@ set -euxo pipefail
 apk -U upgrade
 
 # Installing docker
+touch /etc/network/interfaces
 apk add openrc docker
 openrc default
 service docker start
