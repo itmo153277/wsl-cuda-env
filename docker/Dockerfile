@@ -12,7 +12,7 @@ RUN apt-get update && \
     curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
     curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list && \
     curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
-    echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-15 main" > /etc/apt/sources.list.d/llvm.list && \
+    echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-16 main" > /etc/apt/sources.list.d/llvm.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       sudo \
@@ -26,9 +26,9 @@ RUN apt-get update && \
       ninja-build \
       gdb \
       g++-10 \
-      clang-15 \
-      clang-tidy-15 \
-      clang-format-15 \
+      clang-16 \
+      clang-tidy-16 \
+      clang-format-16 \
       cppcheck \
       libgtk-3-dev \
       tensorrt-dev \
