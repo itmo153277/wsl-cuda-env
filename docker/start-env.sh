@@ -18,11 +18,12 @@ exec docker run \
     -v /etc/localtime:/etc/localtime:ro \
     -v /etc/timezone:/etc/timezone:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     -v $(pwd):/workspace \
     -w /workspace \
     -e HOME=/workspace \
     -e SHELL=bash \
     -e TERM \
     -e DISPLAY \
-    $* \
+    "$@" \
     viktprog/cuda-env

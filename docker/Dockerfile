@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:12.2.2-cudnn8-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -6,13 +6,11 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       curl \
       ca-certificates && \
-    curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.25.1/cmake-3.25.1-linux-x86_64.tar.gz | tar xzf - -C /usr/local --strip-components 1 --skip-old-files && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list && \
-    curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - && \
-    curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list && \
-    curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
-    echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-16 main" > /etc/apt/sources.list.d/llvm.list && \
+    curl -fsSL https://github.com/Kitware/CMake/releases/download/v3.28.1/cmake-3.28.1-linux-x86_64.tar.gz | tar xzf - -C /usr/local --strip-components 1 --skip-old-files && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable" > /etc/apt/sources.list.d/docker.list && \
+    curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmor -o /etc/apt/keyrings/llvm-snapshot.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/llvm-snapshot.gpg] http://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main" > /etc/apt/sources.list.d/llvm.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       sudo \
@@ -25,12 +23,13 @@ RUN apt-get update && \
       git \
       ninja-build \
       gdb \
-      g++-10 \
-      clang-16 \
-      clang-tidy-16 \
-      clang-format-16 \
+      g++-12 \
+      clang-17 \
+      clang-tidy-17 \
+      clang-format-17 \
       cppcheck \
       libgtk-3-dev \
+      libcairo2-dev \
       tensorrt-dev \
       nvidia-opencl-dev \
       clinfo \
@@ -38,9 +37,8 @@ RUN apt-get update && \
       python3-venv \
       python3-dev \
       python3-libnvinfer \
-      docker-ce \
-      docker-buildx-plugin \
-      nvidia-container-toolkit && \
+      docker-ce-cli \
+      docker-buildx-plugin && \
     rm -rf /var/lib/apt/lists/*
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \

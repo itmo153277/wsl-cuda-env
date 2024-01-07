@@ -26,7 +26,7 @@ GoTo :EOF
 :: Install ubuntu
 :InstallUbuntu
 If Not Exist install\ubuntu MkDir install\ubuntu
-Call :ExecuteShow wsl -d alpine docker create --name ubuntu ubuntu:focal
+Call :ExecuteShow wsl -d alpine docker create --name ubuntu ubuntu:jammy
 Call :ExecuteShow wsl -d alpine sh -c "docker export ubuntu > install/ubuntu/image.tar"
 Call :ExecuteShow wsl --import ubuntu-cuda install\ubuntu install\ubuntu\image.tar --version 2
 PushD "%ScriptPath%"
@@ -41,7 +41,7 @@ GoTo :EOF
 :InstallAlpine
 Call :Echo Installing Alpine Linux
 If Not Exist install\alpine MkDir install\alpine
-Call :Download https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.2-x86_64.tar.gz install\alpine\image.tar.gz
+Call :Download https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.19.0-x86_64.tar.gz install\alpine\image.tar.gz
 Call :ExecuteShow wsl --import alpine install\alpine install\alpine\image.tar.gz --version 2
 PushD "%ScriptPath%"
 Call :ExecuteShow wsl -d alpine sh init-alpine.sh
