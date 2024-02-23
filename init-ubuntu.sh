@@ -34,3 +34,7 @@ curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu22.04/nvidia-docker.list
 apt-get -qq update
 apt-get -qq -y install --no-install-recommends docker-ce docker-buildx-plugin nvidia-container-toolkit locales tzdata dbus git > /dev/null
 usermod -aG docker ubuntu-cuda
+
+sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen
+locale-gen
+update-locale LANG=en_US.UTF-8
