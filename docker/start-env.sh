@@ -8,6 +8,7 @@ exec docker run \
     --group-add $(getent group sudo | cut -d: -f3) \
     --group-add $(getent group docker | cut -d: -f3) \
     --gpus all \
+    --shm-size=2g \
     --net=host \
     -it \
     -v /mnt:/mnt \
