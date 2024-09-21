@@ -8,6 +8,8 @@ export DEBIAN_FRONTEND=noninteractive
 export LANGUAGE=
 export LC_CTYPE=C.UTF-8
 export LC_ALL=C.UTF-8
+sed -i "s@http://archive.ubuntu@http://ja.archive.ubuntu@g" /etc/apt/sources.list
+(yes || true) | unminimize
 apt-get -qq update
 apt-get -qq -y full-upgrade > /dev/null
 apt-get -qq -y install --no-install-recommends sudo curl gnupg2 apt-utils ca-certificates > /dev/null
@@ -32,7 +34,7 @@ curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu22.04/nvidia-docker.list
 > /etc/apt/sources.list.d/nvidia-docker.list
 
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends docker-ce docker-buildx-plugin nvidia-container-toolkit locales tzdata dbus git > /dev/null
+apt-get -qq -y install --no-install-recommends docker-ce docker-buildx-plugin nvidia-container-toolkit locales tzdata dbus git make nano bash-completion > /dev/null
 usermod -aG docker ubuntu-cuda
 
 sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen
