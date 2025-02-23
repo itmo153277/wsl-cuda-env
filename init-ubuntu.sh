@@ -27,9 +27,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
   gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable" \
 > /etc/apt/sources.list.d/docker.list
-curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | \
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
   gpg --dearmor -o /etc/apt/keyrings/nvidia-docker.gpg
-curl -fsSL https://nvidia.github.io/nvidia-docker/ubuntu22.04/nvidia-docker.list | \
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
   sed "s#deb https://#deb [signed-by=/etc/apt/keyrings/nvidia-docker.gpg] https://#g" \
 > /etc/apt/sources.list.d/nvidia-docker.list
 
