@@ -8,7 +8,7 @@ export DEBIAN_FRONTEND=noninteractive
 export LANGUAGE=
 export LC_CTYPE=C.UTF-8
 export LC_ALL=C.UTF-8
-sed -i "s@http://archive.ubuntu@http://ja.archive.ubuntu@g" /etc/apt/sources.list
+sed -i "s@http://archive.ubuntu@http://jp.archive.ubuntu@g" /etc/apt/sources.list
 (yes || true) | unminimize
 apt-get -qq update
 apt-get -qq -y full-upgrade > /dev/null

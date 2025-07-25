@@ -2,7 +2,7 @@ FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN sed -i "s@http://archive.ubuntu@http://ja.archive.ubuntu@g" /etc/apt/sources.list && \
+RUN sed -i "s@http://archive.ubuntu@http://jp.archive.ubuntu@g" /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y full-upgrade && \
     apt-get install -y --no-install-recommends \
