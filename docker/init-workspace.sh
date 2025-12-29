@@ -18,7 +18,7 @@ echo "export VCPKG_FORCE_SYSTEM_BINARIES=1" >> .profile
 echo "export VCPKG_OVERLAY_PORTS=/workspace/wsl-cuda-env/vcpkg-overlay-ports" >> .profile
 echo "export VCPKG_ROOT=/workspace/vcpkg" >> .profile
 
-mkdir -p ./miniconda3
-curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > ./miniconda3/miniconda.sh
-bash ./miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm  ./miniconda3/miniconda.sh
+mkdir -p ./miniforge
+curl -fsSL https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh > ./miniforge/miniforge.sh
+bash ./miniforge/miniforge.sh -b -u -p ~/miniforge
+rm  ./miniforge/miniforge.sh
